@@ -1,0 +1,19 @@
+page-shopping-list {
+	ion-list {
+		padding-bottom: 75px;
+		padding-top: 10px;
+	}
+
+	.shoppingListItem {
+		.checked {
+			.description {
+				text-decoration: line-through;
+			}
+		}
+		
+		.quantity {
+			color: #999;
+			font-size: 14px;
+		}
+	}
+}

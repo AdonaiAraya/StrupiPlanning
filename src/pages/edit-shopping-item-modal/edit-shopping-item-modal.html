@@ -1,0 +1,33 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Editar elemento</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="navCtrl.pop()">
+				<ion-icon name="md-close"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+	<form [formGroup]="editForm">
+		<ion-list>
+			<ion-item>
+				<ion-label stacked>Descripción</ion-label>
+				<ion-input type="text" placeholder="Manzanas, Galletas, Zumo..." formControlName="description"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label stacked>Cantidad</ion-label>
+				<ion-input type="number" min="1" max="50" formControlName="quantity"></ion-input>
+			</ion-item>
+			<ion-item class="priorityInput">
+				<ion-label stacked>Prioridad</ion-label>
+				<ion-toggle formControlName="priority"></ion-toggle>
+			</ion-item>
+		</ion-list>
+		<div class="controls">
+			<button ion-button float-right color="primary" [disabled]="!editForm.valid" (click)="save()">
+				Editar elemento
+			</button>
+		</div>
+	</form>
+</ion-content>

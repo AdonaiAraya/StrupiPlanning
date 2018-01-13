@@ -1,0 +1,36 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Listado de la compra</ion-title>
+		<ion-buttons right>
+			<button ion-button icon-only (click)="presentPopover($event)">
+				<ion-icon name="md-more"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-list>
+		<ion-item-sliding class="shoppingListItem" *ngFor="let item of items" #slidingItem>
+			<ion-item>
+				<ion-label [class.checked]="item.checked">
+					<span class="description">{{ item.description }}</span>
+					<span class="quantity" [hidden]="item.quantity <= 1">(x{{ item.quantity }})</span>
+				</ion-label>
+				<ion-checkbox [(ngModel)]="item.checked" (ionChange)="updateItem(item)"></ion-checkbox>
+				<ion-badge [hidden]="!item.priority" color="danger" item-end>Urgente</ion-badge>
+			</ion-item>
+			<ion-item-options>
+				<button ion-button color="light" (click)="presentEditShoppingListItemModal(item, slidingItem)">
+					<ion-icon name="md-create"></ion-icon>
+				</button>
+				<button ion-button color="danger" (click)="deleteItem(item, slidingItem)">
+					<ion-icon name="md-trash"></ion-icon>
+				</button>
+			</ion-item-options>
+		</ion-item-sliding>
+
+	</ion-list>
+	<ion-fab bottom right>
+		<button ion-fab (click)="presentAddShoppingListItemModal()"><ion-icon name="md-add"></ion-icon></button>
+	</ion-fab>
+</ion-content>
