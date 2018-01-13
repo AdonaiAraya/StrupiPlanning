@@ -30,10 +30,6 @@ export class EditShoppingItemModalPage {
 		});
 	}
 
-	ionViewWillEnter(){
-
-	}
-
 	save(){
 		if(this.editForm.valid){
 			this.item.description = this.editForm.value.description;

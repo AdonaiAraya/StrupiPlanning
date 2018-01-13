@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { WeekPlanningPage } from './week-planning';
+import { NgModule } from "@angular/core";
+import { IonicPageModule } from "ionic-angular";
+import { WeekPlanningPage } from "./week-planning";
 
 @NgModule({
 	declarations: [

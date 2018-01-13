@@ -3,6 +3,65 @@
 		<ion-title>Planning semanal</ion-title>
 	</ion-navbar>
 </ion-header>
-<ion-content>
-
+<ion-content padding>
+	<h1>Esta semana</h1>
+	<ion-card class="weekPlanningItem" *ngFor="let item of currentWeekItems">
+		<ion-card-header>
+			<ion-grid>
+				<ion-row>
+					<ion-col class="weekDay">
+						<span>{{ item.date | date : "EEEE" : "" : "es-ES" }}</span>
+					</ion-col>
+					<ion-col class="date" text-right>
+						<span>{{ item.date | date : "dd/MM/yyyy" : "" : "es-ES" }}</span>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card-header>
+		<ion-card-content>
+			<div class="meal">
+				<h2>Comida</h2>
+				<p>{{ item.lunch || "..." }}</p>
+			</div>
+			<div class="meal">
+				<h2>Cena</h2>
+				<p>{{ item.dinner || "..." }}</p>
+			</div>
+		</ion-card-content>
+		<div class="controls">
+			<button ion-button clear color="primary" float-end (click)="presentEditWeekPlanningItem(item)">
+				Editar
+			</button>
+		</div>
+	</ion-card>
+	<h1>Semana siguiente</h1>
+	<ion-card class="weekPlanningItem" *ngFor="let item of nextWeekItems">
+		<ion-card-header>
+			<ion-grid>
+				<ion-row>
+					<ion-col class="weekDay">
+						<span>{{ item.date | date : "EEEE" : "" : "es-ES" }}</span>
+					</ion-col>
+					<ion-col class="date" text-right>
+						<span>{{ item.date | date : "dd/MM/yyyy" : "" : "es-ES" }}</span>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card-header>
+		<ion-card-content>
+			<div class="meal">
+				<h2>Comida</h2>
+				<p>{{ item.lunch || "..." }}</p>
+			</div>
+			<div class="meal">
+				<h2>Cena</h2>
+				<p>{{ item.dinner || "..." }}</p>
+			</div>
+		</ion-card-content>
+		<div class="controls">
+			<button ion-button clear color="primary" float-end (click)="presentEditWeekPlanningItem(item)">
+				Editar
+			</button>
+		</div>
+	</ion-card>
 </ion-content>

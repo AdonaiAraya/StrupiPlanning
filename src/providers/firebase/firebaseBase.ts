@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { FirebaseProvider } from "./firebase";
 import { IFirebaseBaseItem } from "../../models/firebase/IFirebaseBaseItem";
 import { Observable } from "rxjs/Observable";
+import { IFirebaseQuery } from "../../models/firebase/IFirebaseQuery";
 
 @Injectable()
 export abstract class FirebaseBaseProvider {
@@ -13,6 +14,10 @@ export abstract class FirebaseBaseProvider {
 
 	on<TType>(): Observable<Array<TType>>{
 		return this.firebaseService.on<TType>(this.ref);
+	}
+
+	onQuery<TType>(query: IFirebaseQuery): Observable<Array<TType>>{
+		return this.firebaseService.onQuery<TType>(this.ref, query);
 	}
 
 	off(){

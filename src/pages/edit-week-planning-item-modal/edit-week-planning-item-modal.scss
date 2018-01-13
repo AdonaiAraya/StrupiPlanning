@@ -1,0 +1,31 @@
+page-edit-week-planning-item-modal {
+	ion-grid {
+		margin-bottom: 15px;
+	}
+
+	.weekDay {
+		span {
+			display: inline-block;
+			vertical-align: middle;
+			font-weight: bold;
+			font-size: 16px;
+
+			&::first-letter {
+				text-transform: capitalize;
+			}
+		}
+	}
+
+	.date {
+		span {
+			display: inline-block;
+			vertical-align: middle;
+			font-size: 13px;
+			color: #999;
+		}
+	}
+
+	.controls {
+		margin-top: 35px;
+	}
+}

@@ -1,0 +1,39 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Editar elemento</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="navCtrl.pop()">
+				<ion-icon name="md-close"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+	<form [formGroup]="editForm">
+		<ion-grid>
+			<ion-row>
+				<ion-col class="weekDay">
+					<span>{{ item.date | date : "EEEE" : "" : "es-ES" }}</span>
+				</ion-col>
+				<ion-col class="date" text-right>
+					<span>{{ item.date | date : "dd/MM/yyyy" : "" : "es-ES" }}</span>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		<ion-list>
+			<ion-item>
+				<ion-label stacked>Comida</ion-label>
+				<ion-input type="text" placeholder="Macarranes con queso, ..." formControlName="lunch"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label stacked>Cena</ion-label>
+				<ion-input type="text" placeholder="Filete con patatas, ..." formControlName="dinner"></ion-input>
+			</ion-item>
+		</ion-list>
+		<div class="controls">
+			<button ion-button float-right color="primary" [disabled]="!editForm.valid" (click)="save()">
+				Editar elemento
+			</button>
+		</div>
+	</form>
+</ion-content>
